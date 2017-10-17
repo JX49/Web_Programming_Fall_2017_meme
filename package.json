@@ -1,0 +1,26 @@
+{
+  "name": "meme",
+  "version": "1.0.0",
+  "description": "//This is a game //more updates to come",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.15.5",
+    "jquery": "^3.2.1",
+    "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JX49/Web_Programming_Fall_2017_meme.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JX49/Web_Programming_Fall_2017_meme/issues"
+  }
+}
