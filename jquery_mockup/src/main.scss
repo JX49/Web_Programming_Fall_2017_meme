@@ -1,0 +1,23 @@
+$primary-background: #BBBBFF;
+$monospace: "Courier New", Courier, monospace;
+
+header{
+    background: primary-background;
+    margin-bottom: 10px;
+}
+body{
+    background-color: #FEA622;
+}
+
+
+.card{
+    .btn-primary {
+        font-family: monospace;
+        
+    }
+    h4{
+        text-align: center;
+    }
+
+}
+

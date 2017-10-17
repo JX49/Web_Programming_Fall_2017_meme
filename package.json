@@ -4,7 +4,9 @@
   "description": "//This is a game //more updates to come",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass jquery_mockup/src --output jquery_mockup/dist --watch",
+    "webpack": "webpack"
   },
   "dependencies": {
     "express": "^4.15.5",
@@ -12,7 +14,11 @@
     "webpack": "^3.6.0"
   },
   "devDependencies": {
-    "eslint": "^4.7.0"
+    "eslint": "^4.7.0",
+    "node-sass": "^4.5.3",
+    "sass-loader":"^6.0.6",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.18.2"
   },
   "repository": {
     "type": "git",
