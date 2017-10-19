@@ -1,20 +1,15 @@
-const $ = require("jquery");
-require("./main.scss");
-
-
-
-$(function(){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var $ = require("jquery");
+$(function () {
     $("#header-placeholder").load("_header.html", function () {
-        $("#nav-placeholder").load(navProperties.mainNav, function(){
+        $("#nav-placeholder").load(navProperties.mainNav, function () {
             $(".nav-link").removeClass("active");
-            $(`#${navProperties.currentSection}-link`).addClass("active");           
-        });       
-    } );
-
-
-    $(".btn-primary").click(function(){
-        $(this).closest(".col-md-4").css({ 'max-width': 'none'})
-            .animate({ 'flex-basis' : '100%' })
-    })
-
+            $("#" + navProperties.currentSection + "-link").addClass("active");
+        });
+    });
+    $(".btn-primary").click(function () {
+        $(this).closest(".col-md-4").css({ 'max-width': 'none' })
+            .animate({ 'flex-basis': '100%' });
+    });
 });
