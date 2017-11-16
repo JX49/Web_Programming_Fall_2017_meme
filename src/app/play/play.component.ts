@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from "@angular/http";
+import {Room, Player, Quote} from "../models/game"
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-play',
@@ -6,10 +9,53 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./play.component.scss']
 })
 export class PlayComponent implements OnInit {
+  apiRoot = ":/localhost"
+  
 
-  constructor() { }
+  room = new Room();
+
+  me = new Player();
+
+  constructor(private http: Http) { }
 
   ngOnInit() {
+    setInterval(()=> this.update(), 1000)
+    this.http.get(this.apiRoot + "/game/quotes").subscribe( data =>{
+      this.me.quotes = data.json();
+        })
   }
+
+  update(){
+    this.http.get("/game/room/picture").subscribe( data => {
+        this.room.picture = data.text();
+   
+    });
+    this.http.get(this.apiRoot + "/game/room/quotes").subscribe( data =>{
+        this.room.quotes = data.json();
+     
+    });
+}
+
+flipPicture(e: MouseEvent){
+  e.preventDefault();
+  this.http.post(this.apiRoot + "/game/room/picture",{}).subscribe();
+  this.room.chosenQuote = null;
+}
+
+submitQuote(e: MouseEvent, quote: Quote, i: number){
+  e.preventDefault();
+  const data = { text: quote.text };
+  this.http.post(this.apiRoot + "/game/room/quotes", data).subscribe(res=>{
+    this.me.quotes.splice(i, 1);
+    this.me.quotes.push(res.json());
+  });
+  
+}
+
+chhoseQuote(e: MouseEvent, i: number){
+  e.preventDefault();
+  this.room.chosenQuote = i;
+}
+
 
 }
